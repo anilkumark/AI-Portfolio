@@ -1,0 +1,29 @@
+## Initialize Terraform
+terraform init
+
+
+## Validate Terraform Configuration
+terraform validate
+
+
+## Preview Terraform Execution Plan with Variable File
+terraform plan
+
+
+## Deploy Resources
+terraform apply --auto-approve
+
+
+## Destroy Resources
+terraform destroy
+
+### Improve .pem File Permissions on Windows
+# Adjusts permissions for the EC2 key file created by Terraform to make it secure.
+# This is necessary if Windows gives a warning about open permissions.
+
+
+# Remove inherited permissions
+icacls "terraform-ec2-key-gaussian.pem" /inheritance:r
+
+# Grant read-only access to the current user
+icacls "terraform-ec2-key-gaussian.pem" /grant:r "%USERNAME%:R"

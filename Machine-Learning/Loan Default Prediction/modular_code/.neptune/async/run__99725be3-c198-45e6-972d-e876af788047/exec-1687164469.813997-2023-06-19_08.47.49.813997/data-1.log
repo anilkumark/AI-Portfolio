@@ -1,0 +1,8 @@
+{"obj": {"type": "AssignString", "path": ["sys", "name"], "value": "Untitled"}, "version": 1}
+{"obj": {"type": "AssignString", "path": ["sys", "description"], "value": ""}, "version": 2}
+{"obj": {"type": "AssignString", "path": ["monitoring", "3b17c212", "hostname"], "value": "d0d781f0b32e"}, "version": 3}
+{"obj": {"type": "AssignString", "path": ["sys", "hostname"], "value": "d0d781f0b32e"}, "version": 4}
+{"obj": {"type": "AssignString", "path": ["monitoring", "3b17c212", "pid"], "value": "19279"}, "version": 5}
+{"obj": {"type": "AssignString", "path": ["monitoring", "3b17c212", "tid"], "value": "140305980114752"}, "version": 6}
+{"obj": {"type": "AssignBool", "path": ["sys", "failed"], "value": false}, "version": 7}
+{"obj": {"type": "AssignString", "path": ["source_code", "integrations", "neptune-xgboost"], "value": "1.1.1"}, "version": 8}
