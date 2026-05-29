@@ -1,0 +1,49 @@
+# Implementing Multi-Server MCP in LangGraph
+
+## Overview
+This guide provides insights into building LangGraph agents that connect to multiple Modular Command Protocol (MCP) servers. The integration allows for the creation of agents that can utilize tools from various servers, enhancing flexibility and functionality.
+
+## Key Resources
+1. **Multi-Server MCP Langgraph Agent**
+   - **Documentation**: [Innovation Lab Resources](https://innovationlab.fetch.ai/resources/docs/next/examples/mcp-integration/multi-server-agent-example)
+   - This guide demonstrates two approaches for building LangGraph agents that connect to multiple MCP servers, wrapping them as uAgents for discovery and use.
+
+2. **Multi-MCP Server Integration with LangGraph and Ollama**
+   - **Article**: [Medium Article](https://salmanvaliyakath.medium.com/multi-mcp-server-integration-with-langgraph-and-ollama-models-ff78d3a8a194)
+   - **Steps**:
+     - Create two MCP servers (e.g., Math Server and BMI Server).
+     - Implement tools for each server using FastMCP.
+     - Set up a client using `MultiServerMCPClient` to connect to these servers.
+
+3. **GitHub Repository**
+   - **Project**: [MCP-MultiServer-Interoperable-Agent2Agent](https://github.com/junfanz1/MCP-MultiServer-Interoperable-Agent2Agent-LangGraph-AI-System)
+   - This project showcases the integration of MCP with LangGraph, enabling real-time, multi-server tool integration.
+
+4. **LangGraph MCP Endpoint**
+   - **Documentation**: [LangChain Docs](https://docs.langchain.com/langgraph-platform/server-mcp)
+   - The MCP endpoint is available at `/mcp` on LangGraph Server, allowing agents to be exposed as MCP tools.
+
+## Implementation Steps
+1. **Create MCP Servers**: Set up multiple MCP servers (e.g., Math and BMI) using FastMCP.
+   ```python
+   from mcp.server.fastmcp import FastMCP
+   mcp = FastMCP("Math")
+   @mcp.tool()
+   def add(a: int, b: int) -> int:
+       return a + b
+   ```
+
+2. **Initialize Multi-Server Client**: Use `MultiServerMCPClient` to connect to the servers.
+   ```python
+   from langchain_ollama import ChatOllama
+   from langchain_mcp_adapters.client import MultiServerMCPClient
+   Servers = {
+       "bmi": {"url": "<bmi_server_url>", "transport": "sse"},
+       "math": {"command": "python", "args": ["math_server.py"], "transport": "stdio"}
+   }
+   ```
+
+3. **Register and Use Agents**: Wrap the MCP servers as agents and register them for use in the LangGraph environment.
+
+## Conclusion
+Implementing a multi-server MCP in LangGraph enhances the capabilities of agents by allowing them to access a variety of tools across different servers. This modular approach facilitates better resource management and tool utilization.

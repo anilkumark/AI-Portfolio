@@ -1,0 +1,170 @@
+customer_id,customer_name,customer_email,phone_number,date_joined,is_material_downloaded,is_path_created,field_of_interest,profession
+123,Trisha B,example1@org.com,9000000000,31-07-2025 22:43,TRUE,FALSE,Data Science,Learner
+126,Karan,example2@net.io,80000000000,31-07-2025 22:43,TRUE,FALSE,Data Science,Data Scientist
+303368,Daniel Brown,dallen@example.org,8404198590,31-07-2025 22:43,TRUE,TRUE,Big Data,Learner
+303358,Traci Smith,richard91@example.net,4609009756,31-07-2025 22:21,FALSE,FALSE,Data Science,Data Scientist
+303345,Brian Taylor,asmith@example.com,2163946103,31-07-2025 21:35,FALSE,TRUE,Data Science,Data Scientist
+303309,Todd Hopkins DDS,claytonwilliam@example.org,5175788032,31-07-2025 19:32,TRUE,FALSE,Big Data,Developer
+303207,Shelly Harris,tinanguyen@example.com,4927072672,31-07-2025 12:08,FALSE,FALSE,NA,NA
+303185,Joseph Diaz,vcruz@example.org,7853183161,31-07-2025 10:54,TRUE,FALSE,Data Science,Data Scientist
+303133,Dana Hanson,gthompson@example.org,9386072661,31-07-2025 04:08,TRUE,TRUE,Big Data,Data Scientist
+303113,Daniel Hernandez,dana38@example.com,2227039107,31-07-2025 00:24,FALSE,TRUE,Data Science,Learner
+303078,Pamela Hansen,teresa83@example.net,2388146878,30-07-2025 21:43,TRUE,TRUE,Big Data,Learner
+303076,Kyle Green,lopezmaria@example.net,7266508441,30-07-2025 21:24,TRUE,TRUE,Data Science,Learner
+303075,Jason Sanchez,imccann@example.org,8333744906,30-07-2025 21:24,TRUE,TRUE,Big Data,Data Engineer
+303070,Mr. George Logan,shelby96@example.com,7192557623,30-07-2025 21:15,TRUE,FALSE,Big Data,Learner
+303056,Tammy Cooper,christina81@example.net,7615619516,30-07-2025 20:10,FALSE,TRUE,Data Science,Data Scientist
+302938,Jennifer Valdez,collinsleslie@example.net,6832947128,30-07-2025 04:45,FALSE,FALSE,NA,NA
+302925,Stephanie Burgess,wrose@example.org,4809320920,30-07-2025 02:51,TRUE,TRUE,Big Data,Data Engineer
+302901,Megan Logan,suzanneryan@example.org,5607609235,29-07-2025 23:36,FALSE,FALSE,NA,NA
+302816,Katherine Sparks,robertholloway@example.com,9963294979,29-07-2025 16:39,TRUE,TRUE,Big Data,Data Engineer
+302811,Douglas Ramirez,mistyward@example.org,7322237611,29-07-2025 16:08,TRUE,TRUE,NA,NA
+302785,Mark Nguyen,jason12@example.org,7693126231,29-07-2025 13:50,TRUE,FALSE,Data Science,Data Scientist
+302763,Michael Riley,laura68@example.net,6017162139,29-07-2025 10:46,TRUE,TRUE,Big Data,Learner
+302744,Anthony Hodges,webbjennifer@example.com,3442625079,29-07-2025 08:22,TRUE,TRUE,Big Data,Learner
+302645,Jennifer Park,george78@example.net,6542217807,28-07-2025 18:36,TRUE,FALSE,Big Data,Data Engineer
+302543,Cheryl Mccoy,rachel98@example.net,2215565102,28-07-2025 11:34,TRUE,TRUE,Data Science,Data Scientist
+302492,Teresa Johnson,michael86@example.net,9299478043,28-07-2025 05:12,TRUE,TRUE,Big Data,Data Engineer
+302470,Nichole Morrison,ramirezjonathan@example.net,9006185514,28-07-2025 01:21,TRUE,FALSE,Data Science,Data Scientist
+302452,Elizabeth King,shannonmercado@example.com,7392754889,27-07-2025 23:10,TRUE,TRUE,Big Data,Learner
+302398,Rita Miranda,jorgegonzalez@example.org,4755822900,27-07-2025 18:47,FALSE,FALSE,Data Science,Learner
+302352,Dana Jackson,reedtheresa@example.net,7145436654,27-07-2025 15:14,FALSE,TRUE,Data Science,Developer
+302308,Michael Robinson,paulmurray@example.com,2118165261,27-07-2025 12:50,FALSE,FALSE,Data Science,Learner
+302270,Dustin Young,blackpamela@example.net,5307269557,27-07-2025 11:20,FALSE,FALSE,Data Science,Data Scientist
+302179,George Hart,melliott@example.net,2472874918,27-07-2025 00:14,FALSE,FALSE,Data Science,Learner
+302174,Scott Mullins,williamsmadison@example.net,8316853793,26-07-2025 23:56,TRUE,TRUE,Data Science,Developer
+302173,Faith Johnson,willislogan@example.org,9552872122,26-07-2025 23:54,FALSE,FALSE,NA,NA
+302114,David Moore,linda61@example.com,9636832904,26-07-2025 20:44,TRUE,TRUE,Big Data,Developer
+302103,Jacqueline Cox,lewisdavid@example.com,2022823517,26-07-2025 20:11,FALSE,TRUE,Data Science,Data Scientist
+302093,Mr. Joshua Ruiz,wendy97@example.net,6874621700,26-07-2025 19:34,TRUE,TRUE,Data Science,Developer
+302051,Kelsey Cooper,robertrubio@example.org,3933847960,26-07-2025 17:53,TRUE,TRUE,Big Data,Learner
+302034,Jacob Foster,kelsey46@example.net,4818525661,26-07-2025 16:42,FALSE,FALSE,Data Science,Data Scientist
+301791,Robert Mckay,leejesse@example.net,9526117722,25-07-2025 21:43,TRUE,TRUE,Big Data,Learner
+301790,Brandon Ross,joshuajones@example.org,9606166925,25-07-2025 21:42,FALSE,TRUE,Big Data,Developer
+301653,Alex Nielsen,jessica47@example.net,4248471696,25-07-2025 15:07,TRUE,TRUE,Data Science,Learner
+301644,April Le,charles86@example.org,7744834923,25-07-2025 14:33,FALSE,FALSE,Data Science,Data Engineer
+301549,Patrick Buchanan,rachael17@example.org,2294806309,25-07-2025 09:42,TRUE,TRUE,Data Science,Data Scientist
+301516,Anna Patterson,jeffrey97@example.net,8155472066,25-07-2025 06:56,FALSE,TRUE,NA,NA
+301512,Keith Nielsen,deborah30@example.com,4206641726,25-07-2025 05:54,TRUE,TRUE,NA,NA
+301480,Kent Coleman,michaelcarter@example.org,6546082705,25-07-2025 01:21,TRUE,FALSE,Big Data,Data Engineer
+301457,Lawrence Carter,kylehall@example.com,4606044706,24-07-2025 23:44,TRUE,TRUE,Data Science,Data Scientist
+301450,Jaime Horton,hartalexandra@example.net,6817074487,24-07-2025 23:18,FALSE,TRUE,Big Data,Developer
+301335,Carrie Jordan,fsmith@example.com,3507141745,24-07-2025 17:08,TRUE,FALSE,NA,NA
+301260,Anna Burton,matthew58@example.net,4662836782,24-07-2025 13:17,TRUE,TRUE,Data Science,Data Scientist
+301146,Donald Holland,cody34@example.org,5803928304,24-07-2025 02:55,TRUE,FALSE,Big Data,Learner
+301116,Dylan Bowen,xvega@example.com,5122030670,23-07-2025 23:31,TRUE,TRUE,Data Science,Learner
+301084,Eric Gallagher,sanchezandrew@example.org,6928451555,23-07-2025 21:26,TRUE,TRUE,Data Science,Data Scientist
+301077,Marcus Hanna,ugarza@example.net,7226058910,23-07-2025 20:48,TRUE,TRUE,Data Science,Learner
+301016,Tiffany Long,matthew10@example.net,6963101809,23-07-2025 15:03,TRUE,TRUE,Big Data,Developer
+301011,Jonathan Torres,ymcmillan@example.org,2758838281,23-07-2025 14:32,FALSE,FALSE,Data Science,Learner
+300977,Dalton Garza,butlermaria@example.com,8303712871,23-07-2025 12:43,FALSE,FALSE,NA,NA
+300958,Hannah Reyes,rogervargas@example.org,6355675179,23-07-2025 11:39,TRUE,FALSE,Data Science,Learner
+300941,Virginia Grant,jonessara@example.net,7358938629,23-07-2025 09:56,TRUE,TRUE,NA,NA
+300898,Charles Harris,brianjohnson@example.org,8126800649,23-07-2025 02:20,FALSE,TRUE,Big Data,Developer
+300816,Joseph Brown,wallerkelsey@example.org,3082399985,22-07-2025 20:07,TRUE,TRUE,Data Science,Learner
+300768,Julia Campbell,hilledward@example.net,8479380402,22-07-2025 17:19,TRUE,TRUE,Big Data,Data Engineer
+300701,Jeremy Lucas,mbrown@example.com,4609680586,22-07-2025 13:21,FALSE,FALSE,NA,NA
+300601,Sean Green,michaelmorse@example.net,7632842448,22-07-2025 00:55,TRUE,FALSE,Data Science,Data Scientist
+300544,Heidi Williams,ygiles@example.com,5272716534,21-07-2025 21:31,TRUE,TRUE,Data Science,Data Scientist
+300482,Sandra Daniels,fpotts@example.com,7222313743,21-07-2025 18:35,TRUE,TRUE,Data Science,Data Scientist
+300391,Brittany Crawford,amandariley@example.org,9775215310,21-07-2025 14:00,TRUE,TRUE,Data Science,Data Scientist
+300380,Stacy Fowler,reedbrittany@example.net,9202990729,21-07-2025 12:47,FALSE,FALSE,NA,NA
+300310,Michelle White,nicoleingram@example.net,6758128915,21-07-2025 07:33,FALSE,FALSE,NA,NA
+300295,Crystal Cook,hendersonjeffery@example.org,7067239752,21-07-2025 04:12,TRUE,TRUE,Big Data,Learner
+300283,Jenna Walker,ramirezlisa@example.org,2329440158,21-07-2025 02:15,FALSE,TRUE,NA,NA
+300168,Sandra Glenn,zvaldez@example.com,8175914472,20-07-2025 19:14,TRUE,TRUE,Data Science,Learner
+300160,Lauren Brady,erica42@example.com,9998165422,20-07-2025 19:01,TRUE,TRUE,Big Data,Developer
+300133,Lonnie Jackson,douglas74@example.com,8939652582,20-07-2025 17:59,TRUE,FALSE,Big Data,Learner
+300104,Deanna Cummings,johnsonjohn@example.org,2848118818,20-07-2025 15:55,TRUE,TRUE,Data Science,Data Scientist
+299917,Leslie Phillips,villarrealjoy@example.com,2052804878,20-07-2025 06:47,FALSE,FALSE,Data Science,Learner
+299892,Whitney Douglas,leeerin@example.com,2838247270,20-07-2025 02:15,TRUE,TRUE,Data Science,Developer
+299778,Monica White,bennettjacob@example.com,7625047439,19-07-2025 18:18,TRUE,TRUE,Big Data,Developer
+299725,Debra Kennedy,anthonyhanson@example.net,7092869329,19-07-2025 15:15,TRUE,TRUE,Big Data,Developer
+299703,David Tucker,jameslee@example.net,8414254595,19-07-2025 14:05,TRUE,TRUE,Big Data,Developer
+299653,Nicole Lyons,eharris@example.com,7404691100,19-07-2025 10:59,FALSE,FALSE,Data Science,Data Scientist
+299599,Mary Hall,paige02@example.com,2437806901,19-07-2025 03:30,TRUE,TRUE,Data Science,Learner
+299577,Emma Foster,fmartinez@example.org,5943283678,19-07-2025 00:35,TRUE,TRUE,Data Science,Developer
+299539,Sarah Stanton,sean17@example.net,3648023509,18-07-2025 21:32,TRUE,FALSE,Data Science,Learner
+299533,Dr. Edward Webb,brookseric@example.org,5077526060,18-07-2025 21:22,TRUE,FALSE,NA,NA
+299465,Dominique Dudley,xallen@example.org,5198101994,18-07-2025 18:43,TRUE,FALSE,Big Data,Developer
+299415,Denise Miller,walterselizabeth@example.org,2546557611,18-07-2025 16:22,FALSE,TRUE,Big Data,Data Engineer
+299367,Jennifer Gonzalez,wolferyan@example.com,6192361874,18-07-2025 14:28,TRUE,TRUE,Data Science,Learner
+299361,Mr. Michael Murphy,ryanmartin@example.com,6843344798,18-07-2025 14:17,TRUE,FALSE,Big Data,Learner
+299276,Michelle Greer,sean73@example.org,3449430855,18-07-2025 09:40,TRUE,TRUE,Data Science,Learner
+299240,Katherine Watkins,tjones@example.net,6465648175,18-07-2025 04:20,TRUE,TRUE,Big Data,Developer
+299226,Meghan Allen,ballarddiana@example.org,9065008027,18-07-2025 02:59,TRUE,TRUE,Data Science,Learner
+299181,Kenneth King,carlasimmons@example.net,5367434483,17-07-2025 22:45,FALSE,TRUE,NA,NA
+299105,Cindy Perez,hamiltonshawn@example.org,4813303684,17-07-2025 19:03,TRUE,FALSE,Big Data,Data Engineer
+298970,Todd Randall,dixonmichael@example.com,4904712944,17-07-2025 11:32,TRUE,TRUE,Data Science,Learner
+298931,Ryan Abbott,hollandjames@example.org,4265251074,17-07-2025 07:11,FALSE,FALSE,NA,NA
+298847,Charles Fuentes,michael91@example.org,5166708573,16-07-2025 21:31,FALSE,FALSE,Big Data,Data Engineer
+298838,Craig Ruiz,kara94@example.net,4678346010,16-07-2025 20:58,FALSE,TRUE,Data Science,Data Engineer
+298802,Karen Elliott,karen33@example.org,4786819504,16-07-2025 19:09,TRUE,FALSE,Big Data,Learner
+298698,Diane Greer,louis94@example.org,2069443188,16-07-2025 08:54,TRUE,TRUE,NA,NA
+298630,Richard Mcclain,hermanphillip@example.com,3344389692,15-07-2025 22:48,TRUE,TRUE,Data Science,Data Scientist
+298612,Hayley Miller,mackenzie04@example.net,9125494710,15-07-2025 21:44,TRUE,TRUE,NA,NA
+298592,Bianca Sanchez,jonesdanielle@example.net,2433002513,15-07-2025 20:20,FALSE,FALSE,Data Science,Learner
+298520,Cole Andrews,collinskelly@example.com,6366808483,15-07-2025 14:54,TRUE,TRUE,Data Science,Learner
+298412,Eddie Jones,joneskathleen@example.com,5473550364,15-07-2025 02:05,TRUE,TRUE,Data Science,Developer
+298408,Tyler Rodriguez,scottsmith@example.com,6322721573,15-07-2025 01:37,FALSE,FALSE,NA,NA
+298391,Tina James,mcmillannathan@example.com,6703651121,14-07-2025 23:56,FALSE,FALSE,NA,NA
+298353,Mackenzie Crosby,olopez@example.net,4663166135,14-07-2025 21:52,TRUE,TRUE,Data Science,Data Scientist
+298212,Robert Juarez,jkoch@example.org,5176365739,14-07-2025 14:16,FALSE,TRUE,Data Science,Data Scientist
+298087,Brett Douglas,loricrane@example.net,6655446935,14-07-2025 07:55,TRUE,TRUE,Data Science,Developer
+298086,Mr. Antonio Williams,christophermayo@example.net,5207570228,14-07-2025 07:55,TRUE,TRUE,Big Data,Data Engineer
+297994,Madison Campbell,agrant@example.org,3606415925,13-07-2025 23:01,TRUE,TRUE,Data Science,Data Scientist
+297950,Robert Smith,michele91@example.net,3203167967,13-07-2025 21:09,FALSE,TRUE,Big Data,Learner
+297931,Casey Peterson,tperry@example.com,2457987697,13-07-2025 20:28,FALSE,TRUE,Data Science,Learner
+297916,Cameron Warren,michaelbryant@example.org,7498406701,13-07-2025 20:09,FALSE,FALSE,NA,NA
+297910,David Whitaker,zachary83@example.net,3137758838,13-07-2025 19:52,TRUE,TRUE,Data Science,Data Scientist
+297796,Brandy Martinez,charles15@example.net,4292683493,13-07-2025 15:12,FALSE,FALSE,Data Science,Learner
+297792,Michael Rubio,kenneth01@example.org,6463971867,13-07-2025 14:49,FALSE,FALSE,Data Science,Developer
+297603,Cindy Conner,pscott@example.net,3416298361,13-07-2025 00:31,TRUE,TRUE,Big Data,Developer
+297541,Dawn Elliott,jayellis@example.com,5118494623,12-07-2025 21:02,FALSE,FALSE,Data Science,Learner
+297299,Jerry Carter,joannejimenez@example.com,3854037917,12-07-2025 09:04,TRUE,TRUE,Data Science,Developer
+296962,Connie Clarke,johnathanbrown@example.com,5118055523,11-07-2025 12:42,FALSE,TRUE,NA,NA
+296532,Nicole Lynch,sandrachandler@example.net,9617578348,10-07-2025 10:19,TRUE,TRUE,Big Data,Data Engineer
+296512,Dorothy Rodgers,yknox@example.net,6613737142,10-07-2025 09:09,TRUE,FALSE,Big Data,Data Engineer
+296332,Brittany Green,michelleburnett@example.com,5199867842,09-07-2025 16:14,TRUE,TRUE,Data Science,Developer
+296229,Monique Malone,wrightmichael@example.org,8707172826,09-07-2025 05:40,FALSE,FALSE,NA,NA
+296224,John Mills,brownjessica@example.com,9126767380,09-07-2025 04:44,FALSE,TRUE,Data Science,Learner
+296181,Willie Kelley,gjones@example.com,8449415460,09-07-2025 00:15,TRUE,TRUE,Big Data,Data Engineer
+296124,Billy Forbes,ymoore@example.net,5246707536,08-07-2025 20:12,TRUE,TRUE,Big Data,Developer
+296078,Diana Mason DVM,ewalker@example.net,5643029622,08-07-2025 16:41,TRUE,TRUE,Big Data,Learner
+296045,Steven Vance MD,daniel66@example.org,9238219092,08-07-2025 13:41,TRUE,TRUE,Data Science,Learner
+296041,David Quinn,adavis@example.net,9712030577,08-07-2025 13:22,FALSE,FALSE,Data Science,Learner
+296013,Jay Williams,paul96@example.com,8685407232,08-07-2025 12:01,TRUE,TRUE,Big Data,Developer
+296005,Duane Morgan,portercaitlyn@example.net,6003548998,08-07-2025 11:14,TRUE,TRUE,Big Data,Learner
+295943,Katelyn Chen,amanda68@example.com,9933885631,08-07-2025 02:47,TRUE,TRUE,Data Science,Learner
+295941,Wayne Green,gilmorescott@example.net,4028391784,08-07-2025 02:34,TRUE,TRUE,Data Science,Data Scientist
+295905,Michael Sanders,powellcatherine@example.net,4924629390,07-07-2025 22:46,TRUE,TRUE,Data Science,Learner
+295882,Dylan Martinez,nward@example.com,4956241169,07-07-2025 21:37,TRUE,TRUE,Big Data,Developer
+295858,Adam Allen,vhamilton@example.net,8614786200,07-07-2025 20:20,TRUE,TRUE,Big Data,Data Engineer
+295834,Dylan Bowen,robert19@example.org,8937512982,07-07-2025 18:51,TRUE,TRUE,Big Data,Learner
+295807,Sylvia Hoffman,kylewolf@example.net,7843372158,07-07-2025 17:00,FALSE,FALSE,NA,NA
+295771,Jason Allen MD,robert98@example.net,9182394901,07-07-2025 14:37,TRUE,TRUE,Data Science,Data Scientist
+295600,Danielle Gibbs MD,michael58@example.com,2773662437,07-07-2025 00:54,TRUE,TRUE,Data Science,Developer
+295472,Marvin Flowers,xlucero@example.org,9563905349,06-07-2025 17:19,TRUE,TRUE,Data Science,Developer
+295326,Michael Green,aaronhorton@example.org,6759272559,06-07-2025 09:40,TRUE,TRUE,Big Data,Learner
+295301,Grace Cox,powellbethany@example.com,5648890879,06-07-2025 06:22,FALSE,TRUE,Data Science,Learner
+295252,Chelsea Newton,stephanie48@example.com,5197850625,06-07-2025 01:29,FALSE,TRUE,NA,NA
+295174,Nathaniel Flores,michael63@example.com,2317657319,05-07-2025 20:32,TRUE,FALSE,Big Data,Data Engineer
+294981,Mr. John Kelly,sullivanmegan@example.com,6824955615,05-07-2025 11:57,TRUE,TRUE,Big Data,Data Engineer
+294944,Jamie Perez,warrenoconnell@example.org,8357479198,05-07-2025 09:05,TRUE,FALSE,Data Science,Data Scientist
+294847,Derek Lowery,oschmidt@example.com,6357364662,04-07-2025 21:38,TRUE,FALSE,Big Data,Learner
+294828,Joshua Dominguez,matthewmyers@example.org,5608467214,04-07-2025 20:47,TRUE,TRUE,Big Data,Learner
+294778,Danielle Gonzalez,ztaylor@example.org,7047950094,04-07-2025 18:07,TRUE,TRUE,Big Data,Developer
+294745,Nicholas Perez,theresa62@example.com,7137761451,04-07-2025 16:01,TRUE,TRUE,Data Science,Learner
+294496,Tina Cain,darren36@example.com,6537912268,03-07-2025 19:52,FALSE,FALSE,NA,NA
+294495,Jeremy Coleman,george64@example.com,8863173314,03-07-2025 19:52,TRUE,TRUE,NA,NA
+294345,Donna Kelly,dawn24@example.com,5554686999,03-07-2025 10:34,TRUE,TRUE,Data Science,Developer
+294313,Carl Lowery,deanna31@example.com,3793696298,03-07-2025 06:41,FALSE,FALSE,Big Data,Learner
+294307,Amy Wright,njones@example.net,7979788298,03-07-2025 05:15,FALSE,TRUE,Big Data,Data Scientist
+294178,Michelle Johnston,andrewleach@example.org,3928613816,02-07-2025 17:33,FALSE,TRUE,Data Science,Data Scientist
+294177,Anna Klein,gmartinez@example.org,7133254442,02-07-2025 17:31,FALSE,FALSE,Big Data,Data Engineer
+294102,Ashlee Thomas,brookskristen@example.org,8823498905,02-07-2025 10:54,TRUE,TRUE,Data Science,Learner
+294020,Nathan Hall,mcknightemily@example.net,3439681562,01-07-2025 21:47,TRUE,TRUE,Big Data,Data Engineer
+293925,Tracey Oconnor,crystal63@example.net,6112580445,01-07-2025 13:15,TRUE,TRUE,Data Science,Learner
+293894,Megan West,solischristopher@example.net,3219301320,01-07-2025 10:21,TRUE,TRUE,Big Data,Learner
+293871,Katie Lloyd,charlesrhodes@example.net,9347899619,01-07-2025 08:28,TRUE,TRUE,Big Data,Data Engineer
+293847,Kari Beck,lynchandrew@example.org,6139341280,01-07-2025 03:07,TRUE,TRUE,Big Data,Data Engineer

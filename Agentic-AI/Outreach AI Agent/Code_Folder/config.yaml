@@ -1,0 +1,24 @@
+database:
+  DATABASE_URL : "sqlite:///./User_Data.sqlite"
+
+csv_dir: 
+  user_profiles: "data/enroll_final.csv"
+  user_video_engage: "data/engage_final.csv"
+  user_feedback: "data/feedback_final.csv"  
+
+Google_API:
+  GOOGLE_CREDENTIALS_FILE: "credentials.json"
+  GOOGLE_TOKEN_FILE: "token.json"
+  GOOGLE_SCOPES: ['https://mail.google.com/']
+
+ElevenLabs:
+  ELEVENLABS_API_KEY: "enter-elevenlabs-key"
+  ELEVENLABS_AGENT_ID: "enter_agent_id"
+  PHONE_NUMBER_ID: "enter_phone_number_id"
+
+OpenAI:
+  OPENAI_API_KEY: "enter-openai-key"
+  
+Email:  
+  SENDER_EMAIL: "sender@example.com"
+

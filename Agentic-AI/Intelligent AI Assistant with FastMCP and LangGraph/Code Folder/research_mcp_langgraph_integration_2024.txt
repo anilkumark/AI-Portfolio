@@ -1,0 +1,23 @@
+### MCP Integration with LangGraph
+
+1. **Overview of MCP**: The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to large language models (LLMs). It allows for the integration of various tools and data sources in a model-agnostic manner.
+
+2. **LangGraph and MCP**: LangGraph is a framework for building stateful, graph-based workflows. It integrates with MCP to enhance the capabilities of AI agents by allowing them to access various tools and data sources seamlessly.
+
+3. **Key Features of Integration**:
+   - **Modular Architecture**: MCP enables a clean and modular architecture where tools can be added or swapped without affecting the overall system. This allows for easy integration of tools like FileLookup, WeatherFetcher, and CodeReview services.
+   - **Structured Communication**: LangGraph registers all deployed agents as MCP-compatible tools, exposing them via the `/mcp` endpoint. This allows clients to discover and interact with these agents easily.
+   - **Client Interaction**: Clients can connect to the LangGraph server using an MCP-compliant client, facilitating structured requests and responses without manual schema definitions.
+
+4. **Setting Up MCP with LangGraph**:
+   - To create an MCP server, you need to set up prompts, resources, and tools that can be accessed programmatically. This involves installing necessary packages like `mcp`, `langchain`, and `langgraph`.
+   - Example architectures and code walkthroughs are available to guide users through the integration process.
+
+5. **Practical Applications**: The integration allows for the development of sophisticated AI agents capable of performing complex tasks by leveraging the capabilities of both MCP and LangGraph. Examples include building a Deep Research Assistant that can interact with various data sources and tools.
+
+6. **Resources**:
+   - [LangGraph MCP Client Setup Made Easy](https://generect.com/blog/langgraph-mcp/)
+   - [MCP endpoint in LangGraph Server - Docs by LangChain](https://docs.langchain.com/langgraph-platform/server-mcp)
+   - [Building a Full-Fledged Research Assistant with MCP and LangGraph](https://www.dailydoseofds.com/model-context-protocol-crash-course-part-9/)
+   - [Creating an MCP Server and Integrating with LangGraph](https://ai.plainenglish.io/creating-an-mcp-server-and-integrating-with-langgraph-5f4fa434a4c7)
+   - [MCP + LangGraph Agent GitHub Repository](https://github.com/hirokiyn/mcp-langgraph)

@@ -1,0 +1,17 @@
+# Database and Analytics
+sqlalchemy==2.0.41
+pandas==2.3.1
+pyyaml==6.0.2
+
+# CrewAI and AI Tools
+crewai==0.152.0
+openai==1.98.0
+
+# Calling and Communication
+elevenlabs==2.8.1
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+
+

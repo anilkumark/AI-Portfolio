@@ -1,0 +1,22 @@
+# AI Assistant Dependencies
+
+# Core LLM
+openai==1.109.1
+langchain==0.3.33
+langchain-openai=0.3.33
+
+# MCP and Agent Framework
+langchain-mcp-adapters==0.1.10
+langgraph==0.6.7
+mcp==1.15.0
+mcp[cli]
+
+# Search
+tavily-python==0.7.12
+
+# UI
+streamlit==1.50.0
+
+# System
+python-dotenv
+psutil

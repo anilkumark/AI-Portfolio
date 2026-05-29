@@ -1,0 +1,88 @@
+feedback_id,customer_id,course_id,course_type,course_title,feedback_questions_id,answer,date_created
+9443,299892,a5ce3c,BD,Relational Database Query Optimization and Advanced SQL Analytics,19,"solid videos in bite sized steps made this easy to follow,",31-07-2025 21:32
+9442,299892,a5ce3c,BD,Relational Database Query Optimization and Advanced SQL Analytics,18,4,31-07-2025 21:32
+9426,297603,dc8efa,DS,Time Series Analysis and Financial Forecasting with Recurrent Neural Networks,19,l,31-07-2025 00:57
+9425,297603,dc8efa,DS,Time Series Analysis and Financial Forecasting with Recurrent Neural Networks,18,3,31-07-2025 00:57
+9410,302744,4f0f5f,BD,Intermediate Database Management and SQL Query Processing Techniques,19,-,29-07-2025 20:47
+9409,302744,4f0f5f,BD,Intermediate Database Management and SQL Query Processing Techniques,18,5,29-07-2025 20:47
+9408,302744,a5ce3c,BD,Relational Database Query Optimization and Advanced SQL Analytics,19,-,29-07-2025 15:16
+9407,302744,a5ce3c,BD,Relational Database Query Optimization and Advanced SQL Analytics,18,5,29-07-2025 15:16
+9376,301450,a5ce3c,BD,Relational Database Query Optimization and Advanced SQL Analytics,19,Great Explanation,28-07-2025 07:49
+9375,301450,a5ce3c,BD,Relational Database Query Optimization and Advanced SQL Analytics,18,5,28-07-2025 07:48
+9372,300295,861c1b,BD,Large-Scale Batch Processing and Distributed Computing on Cloud Infrastructure,19,"Easy to follow project, although very basic.",28-07-2025 03:00
+9371,300295,861c1b,BD,Large-Scale Batch Processing and Distributed Computing on Cloud Infrastructure,18,4,28-07-2025 03:00
+9368,300768,d247cc,BD,Big Data Analytics and Columnar Storage Systems for Large-Scale Data Processing,18,5,28-07-2025 00:43
+9355,302093,d3aaa6,DS,Statistical Classification Methods and Logistic Regression Theory from First Principles,18,5,27-07-2025 14:44
+9350,295882,a4dcce,BD,Enterprise Data Integration and ETL Process Automation for Business Intelligence,19,good,27-07-2025 03:54
+9349,295882,a4dcce,BD,Enterprise Data Integration and ETL Process Automation for Business Intelligence,18,4,27-07-2025 03:54
+9340,300816,ec07cd,DS,Introduction to Statistical Modeling and Linear Regression Theory,18,2,26-07-2025 23:30
+9330,298086,e3e588,BD,Stream Processing Architecture and NoSQL Integration for Real-Time Analytics,19,"The voice is not good.  Unable to follow the videos, not explained in detail!",26-07-2025 12:51
+9329,298086,e3e588,BD,Stream Processing Architecture and NoSQL Integration for Real-Time Analytics,18,1,26-07-2025 12:50
+9318,299415,8101f7,BD,Cloud Data Ingestion and SQL Processing for Large-Scale Analytics,19,The video are short and to the point..,26-07-2025 01:06
+9317,299415,8101f7,BD,Cloud Data Ingestion and SQL Processing for Large-Scale Analytics,18,5,26-07-2025 01:06
+9316,301084,3691b0,DS,Retail Sales Forecasting and Supply Chain Analytics for Large-Scale Commerce,19,"No explanation of ARIMA parameter selection... selection of (p,d,q) is not clear. why we are trying AutoARIMA is not clear. There is no explanation about stationarity for choosing the d value etc.....  Google search results are very far better than this...",25-07-2025 23:49
+9315,301084,3691b0,DS,Retail Sales Forecasting and Supply Chain Analytics for Large-Scale Commerce,18,1,25-07-2025 23:45
+9303,295882,3691b0,DS,Retail Sales Forecasting and Supply Chain Analytics for Large-Scale Commerce,19,it was good,25-07-2025 13:56
+9302,295882,3691b0,DS,Retail Sales Forecasting and Supply Chain Analytics for Large-Scale Commerce,18,4,25-07-2025 13:56
+9275,295858,208175,BD,Container Orchestration and Cloud-Native Application Deployment Strategies,18,3,24-07-2025 19:39
+9266,294020,87e15f,BD,Serverless Computing Architecture and Event-Driven Data Processing Systems,19,ONe of the best project resembles a lot with real world,24-07-2025 03:42
+9265,294020,87e15f,BD,Serverless Computing Architecture and Event-Driven Data Processing Systems,18,5,24-07-2025 03:42
+9259,299778,c31182,DS,Algorithmic Pricing Strategies and Revenue Optimization in Retail Analytics,19,"Couldnt get the notebook to run as the tutorial is old and the packages dont work on m1 chip. Also, the example data did not feel accurate",23-07-2025 17:18
+9258,299778,c31182,DS,Algorithmic Pricing Strategies and Revenue Optimization in Retail Analytics,18,2,23-07-2025 17:18
+9242,299917,dc8efa,DS,Time Series Analysis and Financial Forecasting with Recurrent Neural Networks,18,4,22-07-2025 19:54
+9230,300295,87e15f,BD,Serverless Computing Architecture and Event-Driven Data Processing Systems,18,3,21-07-2025 21:51
+9193,299367,ec07cd,DS,Introduction to Statistical Modeling and Linear Regression Theory,18,4,20-07-2025 11:34
+9189,299105,713005,BD,Data Governance and Metadata Management for Enterprise Data Platforms,19,"Awful video series, same problem of assuming setup configuration, provided code is incomplete, not aware of best practices, sdlc is not present anywhere, among others. This is not advanced at all.",20-07-2025 01:59
+9188,299105,713005,BD,Data Governance and Metadata Management for Enterprise Data Platforms,18,1,20-07-2025 01:58
+9183,296013,713005,BD,Data Governance and Metadata Management for Enterprise Data Platforms,18,4,19-07-2025 23:29
+9176,294345,54eac7,DS,Real Estate Analytics and Natural Language Processing for Property Valuation,19,very good,19-07-2025 17:48
+9175,294345,54eac7,DS,Real Estate Analytics and Natural Language Processing for Property Valuation,18,5,19-07-2025 17:48
+9171,299105,f548f5,BD,Enterprise Data Integration and Modern Data Platform Architecture,19,"Like: solutions architecture and implementation of different Azure services
+Dislike: notebooks are not clear, dim model is not clear and not efficient, does not follow sdlc best practices, skips the configuration of the resources",19-07-2025 09:12
+9170,299105,f548f5,BD,Enterprise Data Integration and Modern Data Platform Architecture,18,3,19-07-2025 09:10
+9169,298592,b3c391,DS,Machine Learning Applications in Banking and Financial Technology Innovation,19,"Amazing course, easy to flow and understand.",19-07-2025 02:12
+9168,298592,b3c391,DS,Machine Learning Applications in Banking and Financial Technology Innovation,18,5,19-07-2025 02:11
+9161,294345,6a7d5e,DS,Advanced Natural Language Processing and Transformer-Based Text Classification,19,good,18-07-2025 22:31
+9160,294345,6a7d5e,DS,Advanced Natural Language Processing and Transformer-Based Text Classification,18,5,18-07-2025 22:31
+9140,299105,b4e516,BD,Modern Data Lake Architecture and Incremental Data Processing Methodologies,19,"Is not updated at all, and the base code is not working properly because of the changes in runtime from databricks. You should update this.",18-07-2025 09:27
+9139,299105,b4e516,BD,Modern Data Lake Architecture and Incremental Data Processing Methodologies,18,1,18-07-2025 09:26
+9138,299240,ee48d5,BD,Big Data Integration and Retail Analytics Using Hadoop Ecosystem Technologies,19,"In the real life workplace, it is also important for developers to understand:
+1) which automation job tool can be used to call HiveSQL and what are proper trigger condition for the job so it can implement initial or incremental load?
+2) what is normal deployment process to deploy code into QA/ PROD, which tool is normally used?
+
+Those topics are not touched, so the project is not be able to serve completely for real-life scenario for a developer.",18-07-2025 07:30
+9137,299240,ee48d5,BD,Big Data Integration and Retail Analytics Using Hadoop Ecosystem Technologies,18,3,18-07-2025 07:26
+9071,295472,d247cc,BD,Big Data Analytics and Columnar Storage Systems for Large-Scale Data Processing,19,NA,15-07-2025 01:26
+9070,295472,d247cc,BD,Big Data Analytics and Columnar Storage Systems for Large-Scale Data Processing,18,3,15-07-2025 01:26
+9047,296532,cade7a,BD,Modern Data Transformation and Workflow Orchestration for Analytics Engineering,18,5,14-07-2025 02:47
+9038,295858,b146b2,BD,Serverless Computing and Function-as-a-Service Architecture on Cloud Platforms,18,2,13-07-2025 19:13
+8996,296078,8c6701,BD,Advanced Database Query Optimization and Enterprise SQL Analytics Methods,18,5,12-07-2025 13:39
+8992,297299,0d3119,DS,Recommendation Systems and Personalization Algorithms for Telecommunications,18,5,12-07-2025 10:27
+8975,296005,0d3119,DS,Recommendation Systems and Personalization Algorithms for Telecommunications,19,The entire project was easy to follow,11-07-2025 17:32
+8974,296005,0d3119,DS,Recommendation Systems and Personalization Algorithms for Telecommunications,18,5,11-07-2025 17:31
+8957,295882,cade7a,BD,Modern Data Transformation and Workflow Orchestration for Analytics Engineering,19,"Very good, a little bit more about quicksight wouldve been useful",10-07-2025 22:53
+8956,295882,cade7a,BD,Modern Data Transformation and Workflow Orchestration for Analytics Engineering,18,5,10-07-2025 22:52
+8953,296532,713005,BD,Data Governance and Metadata Management for Enterprise Data Platforms,18,4,10-07-2025 21:53
+8948,294345,e443a4,DS,Credit Risk Modeling and Default Prediction Using Advanced Analytics,19,Explanation could be much more clearer. Overall good,10-07-2025 20:00
+8947,294345,e443a4,DS,Credit Risk Modeling and Default Prediction Using Advanced Analytics,18,4,10-07-2025 19:59
+8944,295858,ef7bff,BD,Enterprise Data Pipeline Architecture and Cloud Analytics Platform Design,19,like,10-07-2025 15:17
+8943,295858,ef7bff,BD,Enterprise Data Pipeline Architecture and Cloud Analytics Platform Design,18,2,10-07-2025 15:17
+8938,296005,dc8efa,DS,Time Series Analysis and Financial Forecasting with Recurrent Neural Networks,19,It is a very basic project. Small project to have been rated as an intermediate level project,10-07-2025 11:36
+8937,296005,dc8efa,DS,Time Series Analysis and Financial Forecasting with Recurrent Neural Networks,18,3,10-07-2025 11:35
+8924,296045,ec07cd,DS,Introduction to Statistical Modeling and Linear Regression Theory,19,Very tough to follow the instructors writing.,09-07-2025 19:25
+8923,296045,ec07cd,DS,Introduction to Statistical Modeling and Linear Regression Theory,18,3,09-07-2025 19:25
+8922,294745,ec07cd,DS,Introduction to Statistical Modeling and Linear Regression Theory,19,"I want to know about coding briefly but in this lecture 2 videos it was completed
+I want to know how to write each line with brief explanation",09-07-2025 17:47
+8921,294745,ec07cd,DS,Introduction to Statistical Modeling and Linear Regression Theory,18,4,09-07-2025 17:45
+8911,295882,6e526d,BD,Modern Data Transformation and Analytics Engineering Using Cloud Data Platforms,19,very good. But need to have a more sequential learning path. A lot of the time the code was run in which I didnt understand a thing because it is discussed in the subsequent lectures. So this would make me go over the previous videos again just to understand the complete concept.,08-07-2025 17:20
+8910,295882,6e526d,BD,Modern Data Transformation and Analytics Engineering Using Cloud Data Platforms,18,4,08-07-2025 17:18
+8901,295882,52562,DS,Network Analytics and Service Quality Optimization for Telecommunications,19,where is the project step by step explanation?,07-07-2025 22:44
+8900,295882,52562,DS,Network Analytics and Service Quality Optimization for Telecommunications,18,3,07-07-2025 22:44
+8897,295858,52562,DS,Network Analytics and Service Quality Optimization for Telecommunications,18,1,07-07-2025 20:40
+8880,295472,b4e516,BD,Modern Data Lake Architecture and Incremental Data Processing Methodologies,19,NA,06-07-2025 21:39
+8879,295472,b4e516,BD,Modern Data Lake Architecture and Incremental Data Processing Methodologies,18,4,06-07-2025 21:38
+8861,302811,f4f457,BD,Unified Stream and Batch Processing Using Apache Beam and Cloud Dataflow,19,Simple architecture,05-07-2025 17:40
+8860,302811,f4f457,BD,Unified Stream and Batch Processing Using Apache Beam and Cloud Dataflow,18,4,05-07-2025 17:39
+8855,294345,e0d2ca,DS,Customer Retention Analytics and Predictive Modeling in Telecommunications,18,5,05-07-2025 12:06
+8802,293894,b146b2,BD,Serverless Computing and Function-as-a-Service Architecture on Cloud Platforms,19,no tiene subtitulos,01-07-2025 12:22
+8801,293894,b146b2,BD,Serverless Computing and Function-as-a-Service Architecture on Cloud Platforms,18,5,01-07-2025 12:21

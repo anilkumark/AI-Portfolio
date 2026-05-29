@@ -1,0 +1,7 @@
+OPENAI_API_KEY = "openaikey"
+SNOWSQL_PWD = "entersnowfkake-pssword"
+SNOWSQL_WAREHOUSE = "snowflake-warehouse"
+SNOWSQL_ACCOUNT = "swosql-acc"
+DATABRICKS_ACCESS_TOKEN = "databricks-accesss-token"
+DATABRICKS_SERVER_HOSTNAME = "databricks-server-host"
+DATABRICKS_HTTP_PATH = "http_path"
