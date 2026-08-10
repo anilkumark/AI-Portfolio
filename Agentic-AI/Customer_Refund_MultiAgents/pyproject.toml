@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refund-system"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "psycopg[binary]>=3.1",
+    "python-dotenv>=1.0",
+    "openai>=1.50",
+    "pgvector>=0.3",
+    "langgraph>=0.2",
+    "langchain-openai>=0.2",
+    "langgraph-supervisor>=0.0.9",
+    "langgraph-checkpoint-postgres>=2.0",
+    "google-auth-oauthlib>=1.2",
+    "google-api-python-client>=2.140",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "streamlit>=1.38",
+    "requests>=2.32",
+    "pydantic-settings>=2.5",
+
+]
+
+
+
+
+
+
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
