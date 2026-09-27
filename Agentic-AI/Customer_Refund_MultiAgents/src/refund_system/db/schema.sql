@@ -88,3 +88,15 @@ CREATE TABLE IF NOT EXISTS pending_approvals (
     created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
     resolved_at       TIMESTAMPTZ
 );
+
+CREATE TABLE IF NOT EXISTS llm_usage (
+    usage_id          INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    thread_id         TEXT NOT NULL,
+    model             TEXT NOT NULL,
+    prompt_tokens     INTEGER NOT NULL,
+    completion_tokens INTEGER NOT NULL,
+    cost_usd          NUMERIC(10,6) NOT NULL,
+    created_at        TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_llm_usage_thread ON llm_usage(thread_id);

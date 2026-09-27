@@ -9,26 +9,18 @@ from refund_system.memory.checkpointer import get_checkpointer
 from fastapi import HTTPException
 from fastapi.responses import HTMLResponse
 from langgraph.types import Command
-from pydantic import BaseModel
 
 from refund_system.db.connection import get_pg_connection
 import logging
 
 from refund_system.core.logging_config import setup_logging
+from refund_system.observability.cost_tracking import UsageTracker
+from refund_system.schemas.chat import ChatRequest, ChatResponse
+from refund_system.schemas.approval import ApprovalStatus
+from refund_system.schemas.cost import ThreadCost
 
 setup_logging()
 logger = logging.getLogger("refund_system.api")
-
-
-class ChatRequest(BaseModel):
-    thread_id: str
-    customer_id: str
-    message: str
-
-
-class ChatResponse(BaseModel):
-    reply: str
-    interrupted: bool
 
 
 @asynccontextmanager
@@ -82,7 +74,10 @@ def decide(thread_id: str, token: str, decision: str):
     finally:
         conn.close()
 
-    config = {"configurable": {"thread_id": thread_id}}
+    config = {
+        "configurable": {"thread_id": thread_id},
+        "callbacks": [UsageTracker(thread_id)],
+    }
     resume_message = (
         "Approved by reviewer." if decision == "approve" else "Denied by reviewer."
     )
@@ -103,7 +98,10 @@ def chat(request: ChatRequest):
         request.message,
     )
 
-    config = {"configurable": {"thread_id": request.thread_id}}
+    config = {
+        "configurable": {"thread_id": request.thread_id},
+        "callbacks": [UsageTracker(request.thread_id)],
+    }
     logger.info("API /chat invoking supervisor graph | thread_id=%s", request.thread_id)
     tagged_message = (
         f"[Authenticated Customer ID: {request.customer_id}] {request.message}"
@@ -127,3 +125,41 @@ def chat(request: ChatRequest):
 
     logger.info("API /chat supervisor completed | thread_id=%s", request.thread_id)
     return ChatResponse(reply=result["messages"][-1].content, interrupted=False)
+
+
+@app.get("/status/{thread_id}", response_model=ApprovalStatus | None)
+def status(thread_id: str):
+    """Used by the UI to poll whether a pending approval has been resolved yet."""
+    conn = get_pg_connection()
+    try:
+        row = conn.execute(
+            "SELECT * FROM pending_approvals WHERE thread_id = %s", (thread_id,)
+        ).fetchone()
+    finally:
+        conn.close()
+
+    if row is None:
+        return None
+    return ApprovalStatus(**row)
+
+
+@app.get("/cost/{thread_id}", response_model=ThreadCost)
+def cost(thread_id: str):
+    """Real token usage and spend for one conversation thread, summed from every
+    recorded LLM call across the supervisor and all three sub-agents."""
+    conn = get_pg_connection()
+    try:
+        row = conn.execute(
+            """SELECT
+                   COUNT(*) AS call_count,
+                   COALESCE(SUM(prompt_tokens), 0) AS prompt_tokens,
+                   COALESCE(SUM(completion_tokens), 0) AS completion_tokens,
+                   COALESCE(SUM(cost_usd), 0) AS cost_usd
+               FROM llm_usage
+               WHERE thread_id = %s""",
+            (thread_id,),
+        ).fetchone()
+    finally:
+        conn.close()
+
+    return ThreadCost(thread_id=thread_id, **row)

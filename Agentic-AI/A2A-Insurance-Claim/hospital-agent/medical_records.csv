@@ -1,0 +1,11 @@
+patient_name,diagnosis,treatment_date,doctor_notes
+John Doe,whiplash,2026-01-16,"Patient presented with neck pain and stiffness following a rear-end collision. Diagnosed with whiplash. Prescribed muscle relaxants and physical therapy."
+Jane Smith,fractured wrist,2026-02-03,"Patient fell during a car accident, sustained a distal radius fracture. Cast applied, follow-up in 6 weeks."
+Robert Johnson,concussion,2026-01-22,"Patient reported dizziness and headache after airbag deployment in a collision. Mild concussion diagnosed, advised rest."
+Emily Davis,lower back strain,2026-02-10,"Patient complained of lower back pain after a low-speed collision. Diagnosed with lumbar strain, prescribed anti-inflammatories."
+Michael Brown,broken rib,2026-01-28,"Patient involved in a side-impact collision, X-ray confirmed a fractured rib. Pain management prescribed."
+Sarah Wilson,whiplash,2026-02-14,"Patient reported neck stiffness two days after a minor collision. Whiplash diagnosis confirmed via physical exam."
+David Martinez,knee injury,2026-01-19,"Patient's knee struck the dashboard during a collision. MRI showed minor ligament strain, brace recommended."
+Laura Garcia,fractured wrist,2026-02-05,"Patient braced against the steering wheel during impact, resulting in a wrist fracture. Surgery not required."
+James Anderson,concussion,2026-01-30,"Patient lost consciousness briefly after a high-speed collision. CT scan clear, concussion protocol initiated."
+Linda Thomas,lower back strain,2026-02-08,"Patient reports ongoing lower back discomfort following a car accident. Physical therapy recommended."

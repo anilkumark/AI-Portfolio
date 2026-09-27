@@ -1,5 +1,6 @@
 """Policy Agent: interprets company refund/return policy documents."""
 
+from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
@@ -8,9 +9,9 @@ from refund_system.retrieval import search
 
 
 @tool
-def search_policy(query: str) -> list[dict]:
+def search_policy(query: str, config: RunnableConfig) -> list[dict]:
     """Search company refund/return policy documents for rules relevant to a natural-language question."""
-    return search.search_policy(query)
+    return search.search_policy(query, config=config)
 
 
 model = ChatOpenAI(model="gpt-4o-mini")

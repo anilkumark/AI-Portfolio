@@ -40,7 +40,7 @@ services:
       dockerfile: docker/Dockerfile
     command: streamlit run src/refund_system/ui/app.py --server.address 0.0.0.0
     environment:
-      API_URL: http://api:8000/chat
+      API_BASE_URL: http://api:8000
     ports:
       - "8501:8501"
     depends_on:

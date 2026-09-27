@@ -22,7 +22,14 @@ dependencies = [
     "streamlit>=1.38",
     "requests>=2.32",
     "pydantic-settings>=2.5",
+]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+eval = [
+    "ragas>=0.2",
 ]
 
 

@@ -1,0 +1,93 @@
+name: CI/CD
+
+# Per the design's Section 16: application code, the extraction prompt, the
+# Bedrock model ID, and the MedDRA knowledge base version all move through
+# this same pipeline as a single unit. A regression in extraction, MedDRA
+# suggestion, or seriousness-gate accuracy against the golden set blocks
+# promotion automatically -- this is the CI gate for that, not a manual
+# check someone might skip under deadline pressure.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run unit tests (pure-logic components -- no AWS/DB needed)
+        run: pytest tests/ -v
+
+      - name: Run golden-set evaluation (release gate)
+        # Only runs once GOLDEN_SET in src/evaluation/golden_set.py is
+        # populated with real de-identified cases and secrets below are
+        # configured -- until then this step is a documented no-op, not a
+        # silently-skipped gate pretending to have passed.
+        if: false  # flip to true once the golden set and AWS secrets are configured
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: python -m src.evaluation.evaluate --fail-on-regression
+
+  build-and-push:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+
+      - name: Log in to Amazon ECR
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image
+        env:
+          ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          ECR_REPOSITORY: pharma-safety-platform
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          # code, prompt, and model/KB version move together -- the image
+          # tag (the commit SHA) is what every case record's
+          # model_version/prompt_version/meddra_kb_version should trace back to
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+
+      - name: Deploy to ECS Fargate (canary)
+        run: |
+          echo "Register a new task definition revision with the new image tag,"
+          echo "update the ECS service with a canary deployment (small % of new-case"
+          echo "traffic first), and watch error rate + extraction confidence"
+          echo "distribution + the evaluation metrics on live traffic for the agreed"
+          echo "window before shifting full traffic -- see design Section 16."
+          echo "Left as a description, not a fabricated aws ecs command sequence,"
+          echo "since the real one depends on your actual cluster/service names,"
+          echo "which don't exist yet on a trial account."
