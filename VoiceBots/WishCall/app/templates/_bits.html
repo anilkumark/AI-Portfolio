@@ -1,0 +1,26 @@
+{% macro face(pid, name, photo, cls='') -%}
+{%- if photo -%}<img class="avatar {{ cls }}" src="/photo/{{ photo }}" alt="">
+{%- else -%}{% set c = avatar(pid) %}<span class="avatar {{ cls }}" style="background:{{ c[0] }};color:{{ c[1] }}" aria-hidden="true">{{ initials(name) }}</span>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro occ_chip(info, label=None) -%}
+<span class="chip" style="background:{{ info.bg }};color:{{ info.fg }}">{{ label or info.label }}</span>
+{%- endmacro %}
+
+{% macro day_list(rows, empty_title, empty_text) -%}
+<div class="list">
+  {% for x in rows %}
+  <a class="item" href="/people/{{ x.r.person_id }}" title="{{ x.message }}">
+    {{ face(x.r.person_id, x.r.name, x.r.photo) }}
+    <div class="grow">
+      <div style="display:flex;align-items:center;gap:6px"><span class="name">{{ x.r.name }}</span><span class="lang">{{ LANG_SHORT[x.r.language] }}</span></div>
+      <div class="meta">{{ occ_chip(x.info) }}{% if x.detail %}<span>{{ x.detail }}</span>{% endif %}</div>
+    </div>
+    <span class="status {{ x.tone }}">{{ x.status }}</span>
+  </a>
+  {% else %}
+  <div class="empty"><strong>{{ empty_title }}</strong>{{ empty_text }}</div>
+  {% endfor %}
+</div>
+{%- endmacro %}

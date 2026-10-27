@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% from "_bits.html" import day_list %}
+{% from "_icons.html" import icon %}
+{% block title %}Home · WishCall{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <div class="sub" style="font-weight:500">{{ today.strftime('%A') }}, {{ today.day }} {{ MONTHS[today.month - 1] }}</div>
+    <h1 style="font-size:24px;margin-top:2px">Today's wishes</h1>
+  </div>
+  <div style="display:flex;gap:8px">
+    <form method="post" action="/pause">
+      <button class="btn" type="submit">{{ 'Resume calls' if settings.calls_paused == '1' else 'Pause calls' }}</button>
+    </form>
+    <a class="btn primary" href="/people/new">{{ icon('plus', 18) }}<span>Add person</span></a>
+  </div>
+</div>
+
+<div class="notice" style="margin-bottom:14px">Phone calling isn't connected yet — that's the next step (your voice + calling). Everything here is saved and ready for it.</div>
+
+<div class="home-grid">
+<div>
+  <section class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h2>{{ total }} wish{{ '' if total == 1 else 'es' }} today</h2>
+      <span class="sub">{% if settings.calls_paused == '1' %}Calls paused{% else %}Calls start {{ time_label(settings.start_time) }}{% endif %}</span>
+    </div>
+    <div class="stats">
+      <div class="stat" style="background:var(--ok-bg);color:var(--ok)"><b>{{ done }}</b><span>Done</span></div>
+      <div class="stat" style="background:var(--neutral-bg);color:var(--ink-2)"><b>{{ scheduled }}</b><span>Scheduled</span></div>
+      <div class="stat" style="background:var(--warn-bg);color:var(--warn)"><b>{{ retrying }}</b><span>Retrying</span></div>
+    </div>
+    {% if next_row %}
+    <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-2)">
+      Next call <b>{{ time_label(next_row.when) }}</b> · {{ next_row.r.name }}
+    </div>
+    {% endif %}
+  </section>
+
+  <div class="section-head"><h2>Today</h2>{% if total > rows|length %}<a href="/calendar">See all {{ total }}</a>{% else %}<a href="/calls">Call logs</a>{% endif %}</div>
+  {{ day_list(rows, "No wishes today", "Add people and their occasions, or import your Excel sheet.") }}
+</div>
+
+<div>
+  <div class="section-head"><h2>Next 4 days</h2><a href="/calendar">Calendar</a></div>
+  <div class="days">
+    {% for d in upcoming %}
+    <a class="day" href="{{ d.link }}"><small>{{ d.dow }}</small><b>{{ d.date }}</b><em>{{ d.count }} wish{{ '' if d.count == 1 else 'es' }}</em></a>
+    {% endfor %}
+  </div>
+  <div class="section-head"><h2>Your list</h2><a href="/people">People</a></div>
+  <div class="card" style="display:flex;justify-content:space-between;gap:12px;align-items:center">
+    <div><b style="font-size:20px">{{ "{:,}".format(people_n) }}</b> <span class="sub">people</span><br><b style="font-size:20px">{{ "{:,}".format(occ_n) }}</b> <span class="sub">occasions</span></div>
+    <a class="btn sm" href="/import">{{ icon('upload', 16) }}Import Excel</a>
+  </div>
+</div>
+</div>
+<a class="fab" href="/people/new" aria-label="Add person">{{ icon('plus', 26) }}</a>
+{% endblock %}

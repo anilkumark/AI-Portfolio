@@ -1,0 +1,22 @@
+{% extends "_auth_base.html" %}
+{% block title %}Set up · WishCall{% endblock %}
+{% block content %}
+<h2 style="font-size:17px;margin-bottom:4px">First-time setup</h2>
+<p class="sub" style="margin:0 0 16px">Create the password you'll use to sign in from your phone or laptop.</p>
+{% if error %}<div class="flash bad" role="alert">{{ error }}</div>{% endif %}
+<form method="post" action="/setup">
+  <div class="field">
+    <label for="nm">Your name <span class="hint">— used in messages: "this is …"</span></label>
+    <input class="input" id="nm" name="my_name" value="{{ my_name or '' }}" placeholder="e.g. Anil" required>
+  </div>
+  <div class="field">
+    <label for="pw">Password <span class="hint">— at least 8 characters</span></label>
+    <input class="input" id="pw" name="password" type="password" autocomplete="new-password" minlength="8" required>
+  </div>
+  <div class="field">
+    <label for="pw2">Type it again</label>
+    <input class="input" id="pw2" name="password2" type="password" autocomplete="new-password" minlength="8" required>
+  </div>
+  <button class="btn primary block" type="submit" style="margin-top:18px">Create and continue</button>
+</form>
+{% endblock %}

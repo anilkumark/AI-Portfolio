@@ -1,0 +1,17 @@
+# secrets
+.env
+
+# personal data: database, photos, pending imports, session key
+data/
+
+# python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

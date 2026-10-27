@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% from "_bits.html" import occ_chip %}
+{% from "_icons.html" import icon %}
+{% block title %}Import Excel · WishCall{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div style="display:flex;align-items:center;gap:8px">
+    <a class="icon-btn" href="/people" aria-label="Back to people">{{ icon('back', 20) }}</a>
+    <h1>Import from Excel</h1>
+  </div>
+</div>
+{% if error %}<div class="flash bad" role="alert">{{ error }}</div>{% endif %}
+<div style="max-width:760px" class="stack">
+
+{% if not result %}
+<section class="card">
+  <div class="step-head"><span class="step">1</span><h2>Get the template</h2></div>
+  <p class="sub" style="margin:0 0 12px;font-size:14px;color:var(--ink-2)">One row per occasion. If one person has two occasions, use two rows with the same phone number.</p>
+  <a class="btn sm" href="/import/template.xlsx">{{ icon('download', 16) }}Download template.xlsx</a>
+</section>
+
+<form class="card" method="post" action="/import" enctype="multipart/form-data" id="upload-form">
+  <div class="step-head"><span class="step">2</span><h2>Upload your file</h2></div>
+  <p class="sub" style="margin:0 0 12px">.xlsx or .csv, up to 2 lakh rows. Nothing is saved until you confirm in the next step.</p>
+  <label class="btn file-btn" style="width:100%;height:56px;border-style:dashed">{{ icon('upload', 18) }}<span id="file-label">Choose file</span>
+    <input type="file" name="file" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv" required
+      onchange="document.getElementById('file-label').textContent=this.files[0]?this.files[0].name:'Choose file'"></label>
+  <button class="btn primary block" type="submit" style="margin-top:14px" onclick="this.textContent='Checking…'">Check file</button>
+</form>
+{% else %}
+<section class="card">
+  <div class="step-head"><span class="step">3</span><h2>Check before importing</h2></div>
+  <div class="sub">{{ result.filename }} · {{ "{:,}".format(result.total) }} rows read</div>
+  <div class="stats">
+    <div class="stat" style="background:var(--ok-bg);color:var(--ok)"><b>{{ "{:,}".format(result.ready) }}</b><span>Ready</span></div>
+    <div class="stat" style="background:var(--neutral-bg);color:var(--ink-2)"><b>{{ "{:,}".format(result.duplicates) }}</b><span>Already there</span></div>
+    <div class="stat" style="background:var(--bad-bg);color:var(--bad)"><b>{{ "{:,}".format(result.bad|length) }}</b><span>Need fixing</span></div>
+  </div>
+
+  {% if result.sample %}
+  <h3 style="font-size:13px;margin:16px 0 0">First rows that will be imported</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Name</th><th>Phone</th><th>Lang</th><th>Occasion</th><th>Date</th><th>Repeats</th><th>Detail</th></tr></thead>
+    <tbody>
+    {% for r in result.sample %}
+      <tr><td>{{ r.name }}</td><td>{{ pretty_phone(r.phone) }}</td><td>{{ LANG_SHORT[r.language] }}</td><td>{{ occ_chip(OCCASIONS[r.type]) }}</td>
+        <td>{{ r.day }} {{ MONTHS[r.month - 1][:3] }}{{ ' ' ~ r.year if r.year }}</td><td>{{ 'Yearly' if r.recurring else 'Once' }}</td><td>{{ r.detail }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+  {% endif %}
+
+  {% if result.bad %}
+  <h3 style="font-size:13px;margin:16px 0 0;color:var(--bad)">Rows that need fixing (skipped)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Row</th><th>Name</th><th>Phone</th><th>Problem</th></tr></thead>
+    <tbody>{% for b in result.bad[:20] %}<tr class="bad"><td>{{ b.row }}</td><td>{{ b.name }}</td><td>{{ b.phone }}</td><td>{{ b.problem }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <a href="/import/{{ result.token }}/errors.csv" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:600">Download all {{ result.bad|length }} rows to fix (.csv)</a>
+  {% endif %}
+</section>
+
+{% if result.ready %}
+<form method="post" action="/import/{{ result.token }}/confirm">
+  <button class="btn primary block" type="submit" onclick="this.textContent='Importing…'">Import {{ "{:,}".format(result.ready) }} occasion{{ '' if result.ready == 1 else 's' }}</button>
+</form>
+{% endif %}
+<a class="btn block" href="/import" style="height:48px;font-size:15px">Choose a different file</a>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% from "_icons.html" import icon %}<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAF7F2">
+<title>{% block title %}WishCall{% endblock %}</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Telugu:wght@400;600&display=swap">
+<link rel="stylesheet" href="/static/style.css?v=1">
+</head>
+<body>
+<div class="auth"><div class="auth-box">
+  <span class="logo">{{ icon('logo', 32) }}</span>
+  <h1>WishCall</h1>
+  <p class="lead">Birthday wishes, condolences and reminders — called out on time, in your own voice.</p>
+  <div class="hello">
+    <span class="chip" style="background:#FDEBDD;color:#9A3412;font-size:13px;padding:5px 12px">జన్మదిన శుభాకాంక్షలు</span>
+    <span class="chip" style="background:#FCE7F0;color:#9D174D;font-size:13px;padding:5px 12px">हार्दिक शुभकामनाएँ</span>
+    <span class="chip" style="background:#E0F2FE;color:#075985;font-size:13px;padding:5px 12px">Happy birthday</span>
+  </div>
+  {% block content %}{% endblock %}
+</div></div>
+</body>
+</html>

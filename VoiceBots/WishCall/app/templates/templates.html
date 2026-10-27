@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from "_bits.html" import occ_chip %}
+{% from "_icons.html" import icon %}
+{% block title %}Message templates · WishCall{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div style="display:flex;align-items:center;gap:8px">
+    <a class="icon-btn" href="/settings" aria-label="Back to settings">{{ icon('back', 20) }}</a>
+    <h1>Message templates</h1>
+  </div>
+</div>
+<div class="pills" style="padding-top:0">
+  {% for k, v in LANGS.items() %}<a class="pill {{ 'on' if k == lang }}" href="/settings/templates?lang={{ k }}">{{ v }}</a>{% endfor %}
+</div>
+<p class="sub" style="max-width:680px">Use <b>{name}</b> for their first name, <b>{my_name}</b> for your name and <b>{detail}</b> for the extra detail (who passed, meeting time and place, festival…). Clear a box to go back to the original wording.</p>
+<form method="post" action="/settings/templates" style="max-width:680px" class="stack">
+  <input type="hidden" name="lang" value="{{ lang }}">
+  {% for k, info in OCCASIONS.items() %}
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      {{ occ_chip(info) }}{% if custom[k] %}<span class="sub">Edited</span>{% endif %}
+    </div>
+    <label class="sr" for="tpl_{{ k }}">{{ info.label }} template</label>
+    <textarea class="input" id="tpl_{{ k }}" name="tpl_{{ k }}" rows="3">{{ tpls[k] }}</textarea>
+  </div>
+  {% endfor %}
+  <div class="sticky-save"><button class="btn primary block" type="submit">Save {{ LANGS[lang] }} templates</button></div>
+</form>
+{% endblock %}

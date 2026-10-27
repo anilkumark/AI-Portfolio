@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% block title %}Settings · WishCall{% endblock %}
+{% block content %}
+<div class="page-head"><h1>Settings</h1></div>
+<div style="max-width:680px" class="stack">
+
+<section class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+    <h2>Your voice</h2>
+    <span class="status warn">Next step</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;margin-top:12px;padding:12px;border:1px solid var(--line-soft);border-radius:12px;background:#FFFCF9">
+    <span style="width:44px;height:44px;border-radius:50%;background:var(--accent-soft);color:var(--accent-dark);display:inline-flex;align-items:center;justify-content:center;flex:none">{{ icon('mic') }}</span>
+    <div><div style="font-weight:600">Voice cloning comes next</div><div class="sub">You'll record 15–30 seconds here, then hear test wishes in English, Hindi and Telugu.</div></div>
+  </div>
+</section>
+
+<form class="card" method="post" action="/settings">
+  <h2 style="margin-bottom:6px">Calling</h2>
+  <div class="set-row"><div><div class="k">Your name in messages</div><div class="sub">Fills "this is …" in every wish</div></div>
+    <input class="input" name="my_name" value="{{ s.my_name }}" aria-label="Your name" required></div>
+  <div class="set-row"><div><div class="k">Daily calls start</div><div class="sub">When there's no time on the occasion</div></div>
+    <input class="input" type="time" name="start_time" value="{{ s.start_time }}" aria-label="Daily calls start"></div>
+  <div class="set-row"><div><div class="k">Calling hours from</div><div class="sub">Never call before this</div></div>
+    <input class="input" type="time" name="hours_from" value="{{ s.hours_from }}" aria-label="Calling hours from"></div>
+  <div class="set-row"><div><div class="k">Calling hours until</div><div class="sub">Never call after this</div></div>
+    <input class="input" type="time" name="hours_to" value="{{ s.hours_to }}" aria-label="Calling hours until"></div>
+  <div class="set-row"><div class="k">Calls at a time</div>
+    <input class="input" type="number" min="1" max="20" name="concurrent" value="{{ s.concurrent }}" aria-label="Calls at a time"></div>
+  <div class="set-row"><div><div class="k">Retries</div><div class="sub">If busy or not answered</div></div>
+    <input class="input" type="number" min="0" max="5" name="retries" value="{{ s.retries }}" aria-label="Retries"></div>
+  <div class="set-row"><div class="k">Minutes between retries</div>
+    <input class="input" type="number" min="10" max="240" step="5" name="retry_gap_min" value="{{ s.retry_gap_min }}" aria-label="Minutes between retries"></div>
+  <div class="set-row"><div><div class="k">Start with "This is an automated message"</div><div class="sub">Needed for automated calls in India</div></div>
+    <input type="checkbox" name="intro_on" value="1" {{ 'checked' if s.intro_on == '1' }} style="width:22px;height:22px;accent-color:var(--accent)" aria-label="Automated message intro"></div>
+  <button class="btn primary" type="submit" style="margin-top:12px">Save calling settings</button>
+</form>
+
+<section class="card">
+  <h2 style="margin-bottom:4px">Message templates</h2>
+  <p class="sub" style="margin:0 0 6px">The words used for each occasion, in each language.</p>
+  {% for k, v in LANGS.items() %}
+  <a class="tpl-chip-row" href="/settings/templates?lang={{ k }}"><span style="font-weight:600">{{ v }}</span><span style="color:var(--faint)">{{ icon('chev', 18) }}</span></a>
+  {% endfor %}
+</section>
+
+<section class="card">
+  <h2 style="margin-bottom:6px">Connections</h2>
+  {% for name, what in [('Phone calls', 'Plivo · places the calls'), ('Voice', 'Sarvam · your cloned voice'), ('AI replies', 'Answers when they talk back')] %}
+  <div class="set-row"><div><div class="k">{{ name }}</div><div class="sub">{{ what }}</div></div><span class="status muted">Not connected</span></div>
+  {% endfor %}
+</section>
+
+<form class="card" method="post" action="/settings/password">
+  <h2 style="margin-bottom:12px">Change password</h2>
+  <div class="field"><label for="cur">Current password</label><input class="input" id="cur" type="password" name="current" autocomplete="current-password" required></div>
+  <div class="row2">
+    <div class="field"><label for="n1">New password</label><input class="input" id="n1" type="password" name="new" minlength="8" autocomplete="new-password" required></div>
+    <div class="field"><label for="n2">Again</label><input class="input" id="n2" type="password" name="new2" minlength="8" autocomplete="new-password" required></div>
+  </div>
+  <button class="btn" type="submit" style="margin-top:14px">Change password</button>
+</form>
+
+<a class="btn block danger" href="/logout" style="height:48px;font-size:15px">Sign out</a>
+</div>
+{% endblock %}

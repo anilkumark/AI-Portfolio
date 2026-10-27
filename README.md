@@ -33,9 +33,13 @@ Welcome to my AI, Machine Learning, GenAI and MLOps Portfolio.
 - [MCP Servers](Agentic-AI/MCP-Servers) - custom Model Context Protocol servers (DB query, fact check) and client
 - [GraphRAG for Insurance Claims](GenAI/GraphRAG-Insurance-Claims) - knowledge-graph RAG over NFIP claims manuals
 
+## Voice AI Projects
+
+- [WishCall](VoiceBots/WishCall) - personal wish-calling app: people, occasions and Excel import (FastAPI + SQLite), calling each person on the day in a cloned voice in English, Hindi or Telugu (Sarvam, Plivo, Gemini; simulate mode without keys)
+
 ## Skills
 
-Python | Machine Learning | Deep Learning | MLOps | AWS | SageMaker | Docker | Airflow | Explainable AI | XGBoost | PyTorch | LangGraph | Multi-Agent Systems | A2A | MCP | RAG | GraphRAG
+Python | Machine Learning | Deep Learning | MLOps | AWS | SageMaker | Docker | Airflow | Explainable AI | XGBoost | PyTorch | LangGraph | Multi-Agent Systems | A2A | MCP | RAG | GraphRAG | FastAPI | Voice AI
 
 ## Contact
 

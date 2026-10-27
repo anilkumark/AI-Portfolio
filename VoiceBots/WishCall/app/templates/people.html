@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% from "_bits.html" import face, occ_chip %}
+{% from "_icons.html" import icon %}
+{% block title %}People · WishCall{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>People</h1>
+    <div class="sub">{{ "{:,}".format(people_n) }} people · {{ "{:,}".format(occ_n) }} occasions</div>
+  </div>
+  <div style="display:flex;gap:8px">
+    <a class="btn sm" href="/import">{{ icon('upload', 16) }}Import Excel</a>
+    <a class="btn sm primary" href="/people/new">{{ icon('plus', 16) }}Add</a>
+  </div>
+</div>
+
+<form class="search" method="get" action="/people" role="search">
+  <label for="q" class="sr">Search people</label>
+  {{ icon('search', 18) }}
+  <input class="input" id="q" name="q" type="search" value="{{ q }}" placeholder="Search name or number">
+  {% if group %}<input type="hidden" name="group" value="{{ group }}">{% endif %}
+</form>
+
+<div class="pills">
+  <a class="pill {{ 'on' if not group }}" href="/people{{ '?q=' ~ q|urlencode if q }}">All</a>
+  {% for g in GROUPS %}
+  <a class="pill {{ 'on' if group == g }}" href="/people?group={{ g }}{{ '&q=' ~ q|urlencode if q }}">{{ g }}</a>
+  {% endfor %}
+</div>
+
+{% if q or group %}<div class="sub" style="margin:8px 4px 0">{{ "{:,}".format(total) }} match{{ '' if total == 1 else 'es' }}</div>{% endif %}
+
+<div class="list" style="margin-top:10px">
+  {% for it in items %}{% set p = it.p %}
+  <a class="item" href="/people/{{ p.id }}">
+    {{ face(p.id, p.name, p.photo) }}
+    <div class="grow">
+      <div style="display:flex;align-items:center;gap:6px"><span class="name">{{ p.name }}</span><span class="lang">{{ LANG_SHORT[p.language] }}</span>{% if p.opted_out %}<span class="status bad">Opted out</span>{% endif %}</div>
+      <div class="meta">{{ pretty_phone(p.phone) }} · {{ p.grp }}</div>
+      <div class="meta">
+        {% if it.next %}{{ occ_chip(it.next.info, it.next.info.label ~ ' · ' ~ it.next.when) }}{% else %}<span>No upcoming occasion</span>{% endif %}
+        {% if it.more %}<span>+{{ it.more }} more</span>{% endif %}
+      </div>
+    </div>
+    <span style="color:var(--faint)">{{ icon('chev', 18) }}</span>
+  </a>
+  {% else %}
+  <div class="empty">
+    {% if q or group %}<strong>Nobody found</strong>Try a different name, number or group.
+    {% else %}<strong>No people yet</strong>Add someone, or import your Excel sheet.{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% if pages > 1 %}
+<div class="pager">
+  {% set base = '/people?' ~ ('q=' ~ q|urlencode ~ '&' if q else '') ~ ('group=' ~ group ~ '&' if group else '') %}
+  {% if page > 1 %}<a class="btn sm" href="{{ base }}page={{ page - 1 }}">{{ icon('back', 16) }}Previous</a>{% else %}<span></span>{% endif %}
+  <span>Page {{ page }} of {{ "{:,}".format(pages) }}</span>
+  {% if page < pages %}<a class="btn sm" href="{{ base }}page={{ page + 1 }}">Next{{ icon('next', 16) }}</a>{% else %}<span></span>{% endif %}
+</div>
+{% endif %}
+<a class="fab" href="/people/new" aria-label="Add person">{{ icon('plus', 26) }}</a>
+{% endblock %}

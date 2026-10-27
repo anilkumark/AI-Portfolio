@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "_bits.html" import face, occ_chip %}
+{% from "_icons.html" import icon %}
+{% block title %}Call logs · WishCall{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>Call logs</h1><div class="sub">Every call, what they heard and what they said back</div></div>
+</div>
+<div class="list">
+  {% for c in calls %}
+  <div class="item">
+    {{ face(c.person_id, c.name, None) }}
+    <div class="grow">
+      <div class="name">{{ c.name or 'Deleted person' }}</div>
+      <div class="meta">{{ c.call_date }}{% if c.type %} · {{ OCCASIONS[c.type].label }}{% endif %}{% if c.duration_s %} · {{ c.duration_s // 60 }} min {{ c.duration_s % 60 }} s{% endif %}</div>
+    </div>
+    <span class="status muted">{{ c.status|replace('_', ' ')|capitalize }}</span>
+  </div>
+  {% else %}
+  <div class="empty">
+    <span style="display:inline-flex;width:52px;height:52px;border-radius:50%;background:var(--accent-soft);color:var(--accent-dark);align-items:center;justify-content:center;margin-bottom:10px">{{ icon('phone', 24) }}</span>
+    <strong>No calls yet</strong>
+    Calls appear here once your voice and phone calling are connected — that's the next step.
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

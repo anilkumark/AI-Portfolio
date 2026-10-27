@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% block title %}{{ 'New person' if is_new else person.name }} · WishCall{% endblock %}
+
+{% macro occ_block(o) -%}
+{% set info = OCCASIONS[o.type] %}
+<div class="occ" data-occ>
+  <input type="hidden" name="occ_id" value="{{ o.id }}">
+  <div class="occ-head">
+    <select class="input" name="occ_type" data-type aria-label="Occasion type">
+      {% for k, v in OCCASIONS.items() %}<option value="{{ k }}" {{ 'selected' if k == o.type }}>{{ v.label }}</option>{% endfor %}
+    </select>
+    <button type="button" class="icon-btn" data-remove aria-label="Remove this occasion">{{ icon('trash', 18) }}</button>
+  </div>
+  <div class="field">
+    <span class="lbl">Date <span class="hint" data-yearhint>{{ '— year optional' if o.recurring else '— year needed' }}</span></span>
+    <div class="row3">
+      <select class="input" name="occ_day" aria-label="Day">
+        <option value="">Day</option>
+        {% for d in range(1, 32) %}<option value="{{ d }}" {{ 'selected' if o.day|string == d|string }}>{{ d }}</option>{% endfor %}
+      </select>
+      <select class="input" name="occ_month" aria-label="Month">
+        <option value="">Month</option>
+        {% for m in MONTHS %}<option value="{{ loop.index }}" {{ 'selected' if o.month|string == loop.index|string }}>{{ m }}</option>{% endfor %}
+      </select>
+      <input class="input" name="occ_year" type="number" inputmode="numeric" min="1900" max="2100" placeholder="Year" value="{{ o.year }}" aria-label="Year">
+    </div>
+  </div>
+  <div class="field" data-extra {{ 'hidden' if not info.extra }}>
+    <label data-extralabel>{{ info.extra }}</label>
+    <input class="input" name="occ_detail" value="{{ o.detail }}" placeholder="{{ info.hint }}" data-detail>
+  </div>
+  <div class="row2" style="margin-top:14px">
+    <div class="field">
+      <label>Repeats</label>
+      <select class="input" name="occ_recurring" data-recurring>
+        <option value="1" {{ 'selected' if o.recurring }}>Every year</option>
+        <option value="0" {{ 'selected' if not o.recurring }}>Only once</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Call at <span class="hint">optional</span></label>
+      <input class="input" name="occ_time" type="time" value="{{ o.call_time }}">
+    </div>
+  </div>
+  <div class="field" style="margin-top:14px">
+    <label>If they talk back</label>
+    <select class="input" name="occ_ai" data-ai>
+      <option value="1" {{ 'selected' if o.ai_replies }}>Reply in my voice (AI)</option>
+      <option value="0" {{ 'selected' if not o.ai_replies }}>Message only — no replies</option>
+    </select>
+  </div>
+  <div class="field" style="margin-top:14px">
+    <label>Custom message <span class="hint">optional — leave empty to use the template</span></label>
+    <textarea class="input" name="occ_message" rows="2" data-custom placeholder="Your own words. You can use {name} and {my_name}.">{{ o.custom_message }}</textarea>
+  </div>
+  <div class="preview">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="sub" style="font-weight:700">What they'll hear</span><span class="lang" data-langname></span>
+    </div>
+    <p data-preview></p>
+  </div>
+</div>
+{%- endmacro %}
+
+{% block content %}
+<div class="page-head">
+  <div style="display:flex;align-items:center;gap:8px">
+    <a class="icon-btn" href="/people" aria-label="Back to people">{{ icon('back', 20) }}</a>
+    <h1>{{ 'New person' if is_new else 'Edit person' }}</h1>
+  </div>
+</div>
+
+{% if errors %}<ul class="errors" role="alert">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+
+<form method="post" action="{{ '/people/new' if is_new else '/people/' ~ person.id }}" enctype="multipart/form-data" id="person-form" style="max-width:680px">
+  <div class="photo-row" style="margin-bottom:16px">
+    <div class="photo-pick" id="photo-box">
+      {% if person.photo %}<img src="/photo/{{ person.photo }}" alt="Current photo">{% else %}{{ icon('camera', 30) }}{% endif %}
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="lbl">Photo <span class="hint">optional</span></span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <label class="btn sm file-btn">Take photo<input type="file" name="photo" accept="image/*" capture="user" data-photo aria-label="Take photo"></label>
+        <label class="btn sm file-btn">Upload<input type="file" accept="image/jpeg,image/png,image/webp" data-photo-alt aria-label="Upload photo"></label>
+        {% if person.photo %}<label class="check" style="align-items:center;font-size:13px"><input type="checkbox" name="remove_photo" value="1">Remove</label>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2 style="margin-bottom:14px">Details</h2>
+    <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" value="{{ person.name }}" required autocomplete="off"></div>
+    <div class="field">
+      <label for="phone">Mobile number</label>
+      <div class="prefix"><span>+91</span><input class="input" id="phone" name="phone" type="tel" inputmode="tel" value="{{ person.phone }}" placeholder="98480 24521" required></div>
+    </div>
+    <div class="field">
+      <span class="lbl" id="lang-lbl">Call language</span>
+      <div class="seg" role="radiogroup" aria-labelledby="lang-lbl">
+        {% for k, v in LANGS.items() %}
+        <input type="radio" name="language" id="lang-{{ k }}" value="{{ k }}" {{ 'checked' if person.language == k }}><label for="lang-{{ k }}">{{ v }}</label>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="field">
+      <label for="grp">Group</label>
+      <select class="input" id="grp" name="grp">{% for g in GROUPS %}<option {{ 'selected' if person.grp == g }}>{{ g }}</option>{% endfor %}</select>
+    </div>
+    <div class="field"><label for="notes">Notes <span class="hint">optional</span></label><textarea class="input" id="notes" name="notes" rows="2" placeholder="e.g. Met at Rotary club">{{ person.notes }}</textarea></div>
+    <div class="field" style="gap:12px">
+      <label class="check"><input type="checkbox" name="consent" value="1" {{ 'checked' if person.consent }}>They know they'll get automated wish calls from me</label>
+      <label class="check"><input type="checkbox" name="opted_out" value="1" {{ 'checked' if person.opted_out }}>Don't call this person (opted out)</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <h2>Occasions</h2>
+      <button type="button" class="btn sm" id="add-occ">{{ icon('plus', 16) }}Add occasion</button>
+    </div>
+    <div id="occ-list">
+      {% for o in occasions %}{{ occ_block(o) }}{% endfor %}
+    </div>
+    <p class="sub" id="occ-empty" {{ 'hidden' if occasions }}>No occasions yet. Tap "Add occasion".</p>
+  </section>
+
+  <div class="sticky-save"><button class="btn primary block" type="submit">Save person</button></div>
+</form>
+
+{% if not is_new %}
+<form method="post" action="/people/{{ person.id }}/delete" style="max-width:680px;margin-top:14px" data-confirm="Delete {{ person.name }} and all their occasions? This can't be undone.">
+  <button class="btn danger block" type="submit" style="height:48px;font-size:15px">{{ icon('trash', 18) }}Delete person</button>
+</form>
+{% endif %}
+
+<template id="occ-template">{{ occ_block(blank) }}</template>
+<script>
+window.WC = {templates: {{ templates_json|safe }}, occasions: {{ occasions_json|safe }}, myName: {{ my_name|tojson }}, langs: {{ LANGS|tojson }}};
+</script>
+{% endblock %}
